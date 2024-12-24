@@ -3,8 +3,161 @@
   "name": "plantuml_sitter",
   "rules": {
     "source_file": {
-      "type": "STRING",
-      "value": "hello"
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_definition"
+      }
+    },
+    "_definition": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "umlCall"
+        }
+      ]
+    },
+    "umlCall": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@startuml"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_line"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "@enduml"
+        }
+      ]
+    },
+    "_line": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "sequence"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "object"
+        }
+      ]
+    },
+    "sequence": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "relation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text"
+        }
+      ]
+    },
+    "object": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "keyword"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "as"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
+    },
+    "keyword": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "actor"
+        },
+        {
+          "type": "STRING",
+          "value": "participant"
+        },
+        {
+          "type": "STRING",
+          "value": "boundary"
+        },
+        {
+          "type": "STRING",
+          "value": "control"
+        },
+        {
+          "type": "STRING",
+          "value": "entity"
+        },
+        {
+          "type": "STRING",
+          "value": "database"
+        },
+        {
+          "type": "STRING",
+          "value": "collections"
+        },
+        {
+          "type": "STRING",
+          "value": "queue"
+        }
+      ]
+    },
+    "relation": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "->"
+        },
+        {
+          "type": "STRING",
+          "value": "-->"
+        },
+        {
+          "type": "STRING",
+          "value": "<--"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z]+"
+    },
+    "text": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z]+"
     }
   },
   "extras": [

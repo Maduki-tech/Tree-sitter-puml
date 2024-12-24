@@ -1,0 +1,30 @@
+==================
+Test: Call Begin and end
+==================
+@startuml
+Alic -> Bob: Hello
+@enduml
+---
+
+(source_file
+    (umlCall
+        (sequence
+            (identifier)
+            (relation)
+            (identifier)
+            (text))))
+
+==================
+Test: Initialize a Variable With Keyword
+==================
+@startuml
+participant Participant as P
+@enduml
+---
+
+(source_file
+    (umlCall
+        (object
+            (keyword)
+            (identifier)
+            (identifier))))

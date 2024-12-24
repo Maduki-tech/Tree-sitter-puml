@@ -5,7 +5,10 @@
       "camelcase": "PlantUmlSitter",
       "scope": "source.plantuml_sitter",
       "path": ".",
-      "file-types": null,
+      "file-types": [
+        "plantuml",
+        "puml"
+      ],
       "injection-regex": "^plantuml_sitter$"
     }
   ],

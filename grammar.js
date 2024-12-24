@@ -10,7 +10,57 @@ module.exports = grammar({
   name: "plantuml_sitter",
 
   rules: {
-    // TODO: add the actual grammar rules
-    source_file: $ => "hello"
+    source_file: $ => repeat($._definition),
+
+    _definition: $ => choice(
+      $.umlCall,
+    ),
+
+    umlCall: $ => seq(
+      "@startuml",
+      repeat($._line),
+      "@enduml"
+    ),
+
+    _line: $ => choice(
+      $.sequence,
+      $.object,
+    ),
+
+    sequence: $ => seq(
+      $.identifier,
+      $.relation,
+      $.identifier,
+      ":",
+      $.text
+    ),
+
+    object: $ => seq(
+      $.keyword,
+      $.identifier,
+      'as',
+      $.identifier
+    ),
+
+    keyword: _ => choice(
+      'actor',
+      'participant',
+      'boundary',
+      'control',
+      'entity',
+      'database',
+      'collections',
+      'queue',
+    ),
+    relation: $ => choice(
+      '->',
+      '-->',
+      '<--',
+    ),
+
+    identifier: $ => /[a-zA-Z]+/,
+
+    text: $ => /[a-zA-Z]+/,
   }
+
 });

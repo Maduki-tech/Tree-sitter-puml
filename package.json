@@ -13,7 +13,7 @@
     "incremental",
     "parsing",
     "tree-sitter",
-    "plantuml_sitter"
+    "plantuml"
   ],
   "files": [
     "grammar.js",
@@ -49,8 +49,8 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.plantuml_sitter",
-      "injection-regex": "^plantuml_sitter$"
+      "scope": "source.plantuml",
+      "injection-regex": "^plantuml$"
     }
   ]
 }

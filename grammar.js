@@ -7,7 +7,7 @@
 /// <reference types="tree-sitter-cli/dsl" />
 // @ts-check
 module.exports = grammar({
-  name: "plantuml_sitter",
+  name: "plantuml",
 
   rules: {
     source_file: $ => repeat($._definition),

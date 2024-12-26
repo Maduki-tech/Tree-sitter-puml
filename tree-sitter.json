@@ -1,15 +1,15 @@
 {
   "grammars": [
     {
-      "name": "plantuml_sitter",
+      "name": "plantuml",
       "camelcase": "PlantUmlSitter",
-      "scope": "source.plantuml_sitter",
+      "scope": "source.plantuml",
       "path": ".",
       "file-types": [
         "plantuml",
         "puml"
       ],
-      "injection-regex": "^plantuml_sitter$"
+      "injection-regex": "^plantuml$"
     }
   ],
   "metadata": {
